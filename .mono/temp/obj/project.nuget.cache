@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Vas9Z/ONQ4PinOJgEocDAWqk3GCVgxDj9tWEjBc7Q7IKb60RoSd3FxHaPbEY2c99NAh1Yu4+VZxeXnrGDZFzLQ==",
+  "success": true,
+  "projectFilePath": "C:\\Godot\\New Game Project\\New Game Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aakov\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\aakov\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
