@@ -22,6 +22,23 @@ public class Game : Node2D
 		var hud = GetNode<HUD>("HUD");
 		hud.UpdateAttack(attack);
 	}
+
+	public void dealDamage()
+	{
+		//var enemyHealth = enemyHealth - attack;
+		var hud = GetNode<HUD>("HUD");
+		var enemy = GetNode<Enemy>("Enemy");
+		if(enemy.getDamaged() == true)
+		{
+			enemy.enemyHealth = enemy.enemyHealth - attack;
+			score--;
+			hud.UpdateScore(score);
+		}
+		
+		
+	}
+	
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

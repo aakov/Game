@@ -6,16 +6,23 @@ public class Enemy : Area2D
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
-	bool hit = false;
+	//public int d = 0;
+	public bool hit = false;
+	public bool damaged = false;
+	public int enemyHealth = 10;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		
 	}
 	
+	public bool getDamaged(){
+		return damaged;
+	}
 	
 	public void _on_Area2D_body_entered(PhysicsBody2D body)
 	{
+		damaged = true;
 		//Console.Write("hit");
 		var game = GetTree().GetRoot().GetNode<Game>("Game");
 		//hud.UpdateScore(1);
@@ -25,20 +32,28 @@ public class Enemy : Area2D
 		if(hit == false){
 			//game.getScore();
 			if(game.score > 1){
-				game.getScore();
-				Hide();
+				//game.getScore();
+				//Hide();
 			}
 			else {
 				//return 0;
+				 //GetTree().Quit(); 
 			}	
 		}
 		//Hide();
 		hit = true;
+		
+		if(enemyHealth < 0)
+		{
+			Hide();
+		}
 		 //var node = GetNode<CollisionShape2D>("CollisionShape2D");
 		//de.Disabled = false;
 
 		//eue_free();
+		//damaged = true;
 	}
+	
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
