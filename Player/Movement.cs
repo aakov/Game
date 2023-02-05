@@ -33,7 +33,13 @@ public class Movement : KinematicBody2D
 			GetNode<Sprite>("Sprite").FlipH = true;
 		}		
 		
-		if (Input.IsActionPressed("Attack"))
+		
+		velocity = velocity.Normalized() * speed;
+	}
+	
+	public override void _UnhandledInput(InputEvent @event)
+{
+   if (Input.IsActionPressed("Attack"))
 		{
 			//enemyHealth -= 1;
 			//Console.WriteLine("Attack");
@@ -44,25 +50,9 @@ public class Movement : KinematicBody2D
 		//	enemy.enemyHealth = enemy.enemyHealth - game.attack;
 				
 		}
-		velocity = velocity.Normalized() * speed;
-	}
-	
-	public override void _PhysicsProcess()
-	{
-		if (Input.IsActionPressed("Attack"))
-		{
-			//enemyHealth -= 1;
-			//Console.WriteLine("Attack");
-			//Hide();
-		//	var enemy = GetNode<Enemy>("Enemy");
-			var game = GetTree().GetRoot().GetNode<Game>("Game");
-			game.dealDamage();
-		//	enemy.enemyHealth = enemy.enemyHealth - game.attack;
-				
-		}/odpowiada za kolizje
-	}
-	
-	public override void _unhandled_input(float delta)
+}
+  
+	public override void _PhysicsProcess(float delta)
 	{
 		Move();
 		velocity = MoveAndSlide(velocity); //odpowiada za kolizje

@@ -20,6 +20,19 @@ public class Enemy : Area2D
 		return damaged;
 	}
 	
+	public bool setDamaged(){
+		damaged = false;
+		return damaged;
+	}
+	
+	public void respond(){
+		if(enemyHealth <=0){
+			Hide();
+			damaged = false;
+		}
+		
+	}
+	
 	public void _on_Area2D_body_entered(PhysicsBody2D body)
 	{
 		damaged = true;
@@ -51,8 +64,9 @@ public class Enemy : Area2D
 		//de.Disabled = false;
 
 		//eue_free();
-		//damaged = true;
+		//damaged = false;
 	}
+	
 	
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
